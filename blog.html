@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Abhinav's Personal Blog</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .blog-header {
+            padding: 120px 0 60px;
+            text-align: center;
+        }
+
+        .blog-header h1 {
+            margin-bottom: 20px;
+        }
+
+        .blog-header p {
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .blog-filters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .filter-categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 8px 15px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            color: inherit;
+            font-size: 0.9rem;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .sort-dropdown {
+            position: relative;
+        }
+
+        .sort-dropdown select {
+            appearance: none;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 8px 35px 8px 15px;
+            border-radius: 30px;
+            color: inherit;
+            cursor: pointer;
+            font-family: inherit;
+        }
+
+        .sort-dropdown::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 50px;
+        }
+
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: inherit;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .pagination-btn:hover,
+        .pagination-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .blog-filters {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <div class="noise-overlay"></div>
+    <div class="cursor-follower"></div>
+    <div id="particles-js" class="particles-container"></div>
+
+    <header class="glass-nav">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">A<span class="highlight">.</span></span>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html" class="active">Blog</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="search-toggle" aria-label="Toggle search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="menu-toggle" class="mobile-only" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="container">
+            <div class="search-container glass-card">
+                <input type="text" id="search-input" placeholder="Search articles...">
+                <button id="close-search">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="blog-header">
+            <div class="container">
+                <h1 class="gradient-text" data-aos="fade-up" data-aos-duration="1000">Blog</h1>
+                <p class="typing-animation" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">Explore my thoughts, ideas, and insights on technology, design, productivity, and more.</p>
+            </div>
+        </section>
+
+        <section class="blog-content">
+            <div class="container">
+                <div class="blog-filters">
+                    <div class="filter-categories">
+                        <button class="filter-btn active" data-category="all">All</button>
+                        <button class="filter-btn" data-category="technology">Technology</button>
+                        <button class="filter-btn" data-category="design">Design</button>
+                        <button class="filter-btn" data-category="productivity">Productivity</button>
+                        <button class="filter-btn" data-category="science">Science</button>
+                        <button class="filter-btn" data-category="travel">Travel</button>
+                        <button class="filter-btn" data-category="personal">Personal</button>
+                    </div>
+                    <div class="sort-dropdown">
+                        <select id="sort-select">
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                            <option value="title">Title A-Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="blog-grid" id="blog-posts-container">
+                    <!-- Blog posts will be dynamically populated here -->
+                </div>
+
+                <div class="pagination">
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                    <button class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter glass-card">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to my newsletter to receive the latest updates and insights.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">A<span class="highlight">.</span></span>
+                    <p>Thoughts, stories, and ideas.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="blog.html?category=technology">Technology</a></li>
+                            <li><a href="blog.html?category=design">Design</a></li>
+                            <li><a href="blog.html?category=productivity">Productivity</a></li>
+                            <li><a href="blog.html?category=science">Science</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Abhinav. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart"></i> by Abhinav</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/blog-data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogPostsContainer = document.getElementById('blog-posts-container');
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const sortSelect = document.getElementById('sort-select');
+
+            // Get category from URL if present
+            const urlParams = new URLSearchParams(window.location.search);
+            const categoryParam = urlParams.get('category');
+
+            // Initialize with the category from URL or 'all'
+            let currentCategory = categoryParam || 'all';
+            let currentSort = 'newest';
+
+            // Set active button based on URL parameter
+            if (categoryParam) {
+                filterButtons.forEach(btn => {
+                    if (btn.dataset.category === categoryParam.toLowerCase()) {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+
+            // Display posts
+            displayPosts();
+
+            // Filter buttons event listeners
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentCategory = this.dataset.category;
+                    displayPosts();
+
+                    // Update URL without reloading the page
+                    const newUrl = currentCategory === 'all'
+                        ? window.location.pathname
+                        : `${window.location.pathname}?category=${currentCategory}`;
+                    history.pushState({}, '', newUrl);
+                });
+            });
+
+            // Sort select event listener
+            sortSelect.addEventListener('change', function() {
+                currentSort = this.value;
+                displayPosts();
+            });
+
+            function displayPosts() {
+                // Filter posts by category
+                let filteredPosts = currentCategory === 'all'
+                    ? [...blogPosts]
+                    : blogPosts.filter(post => post.category.toLowerCase() === currentCategory.toLowerCase());
+
+                // Sort posts
+                switch(currentSort) {
+                    case 'newest':
+                        filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                        break;
+                    case 'oldest':
+                        filteredPosts.sort((a, b) => new Date(a.date) - new Date(b.date));
+                        break;
+                    case 'title':
+                        filteredPosts.sort((a, b) => a.title.localeCompare(b.title));
+                        break;
+                }
+
+                // Generate HTML
+                let postsHTML = '';
+
+                if (filteredPosts.length === 0) {
+                    postsHTML = '<div class="no-posts">No posts found in this category.</div>';
+                } else {
+                    filteredPosts.forEach(post => {
+                        postsHTML += `
+                            <article class="post-card glass-card">
+                                <div class="post-card-image">
+                                    <div class="post-category">${post.category}</div>
+                                    <img src="${post.image}" alt="${post.title}">
+                                </div>
+                                <div class="post-card-content">
+                                    <h3 class="post-title">${post.title}</h3>
+                                    <p class="post-excerpt">${post.excerpt}</p>
+                                    <div class="post-meta">
+                                        <span class="post-date">${post.date}</span>
+                                        <span class="post-read-time">${post.readTime}</span>
+                                    </div>
+                                    <a href="blog-posts/post.html?id=${post.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                                </div>
+                            </article>
+                        `;
+                    });
+                }
+
+                blogPostsContainer.innerHTML = postsHTML;
+            }
+
+            // Pagination (for demonstration)
+            const paginationButtons = document.querySelectorAll('.pagination-btn');
+            paginationButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    if (!this.classList.contains('active') && this.textContent.trim() !== '...') {
+                        paginationButtons.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        // In a real implementation, this would load the appropriate page of posts
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

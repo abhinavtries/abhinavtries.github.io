@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 BRAINROT BLOG 🔥</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Sans+MS&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dark-mode rainbow-bg">
+    <div class="noise-overlay"></div>
+    <div class="cursor-follower"></div>
+    <div id="particles-js" class="particles-container"></div>
+
+    <!-- Removed floating brainrot characters that were blocking the page -->
+
+    <header class="glass-nav">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text spin-fast">A<span class="highlight pulse-crazy">!</span></span>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active wiggle">🏠 HOME</a></li>
+                    <li><a href="blog.html" class="wiggle">📝 BLOG</a></li>
+                    <li><a href="about.html" class="wiggle">👤 ABOUT</a></li>
+                    <li><a href="contact.html" class="wiggle">📞 CONTACT</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle dark/light mode" class="spin-fast">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="search-toggle" aria-label="Toggle search" class="spin-reverse">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="menu-toggle" class="mobile-only bounce-crazy" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="container">
+            <div class="search-container glass-card card-wiggle">
+                <input type="text" id="search-input" placeholder="🔍 SEARCH FOR BRAINROT...">
+                <button id="close-search" class="pulse-crazy">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="web3-badge bounce-crazy">
+                        <i class="fas fa-brain spin-fast"></i> MAXIMUM BRAINROT
+                    </div>
+                    <h1 class="extreme-glitch" data-text="ABHINAV">ABHINAV</h1>
+                    <p class="subtitle rainbow-text">ABSOLUTE CHAOS AND INSANITY!!!</p>
+
+                    <!-- 3D Dancing Hero Character -->
+                    <div class="hero-dancer">
+                        <img src="images/tralarero.jpg" alt="3D Dancing Tralarero">
+                        <div style="position: absolute; width: 100%; text-align: center; top: -25px; z-index: 11;">
+                            <span class="rainbow-text extreme-glitch" data-text="TRALARERO!!!" style="font-weight: bold; font-size: 28px; text-shadow: 0 0 15px var(--primary-color);">TRALARERO!!!</span>
+                        </div>
+                        <div style="position: absolute; width: 100%; text-align: center; bottom: -25px; z-index: 11;">
+                            <span class="rainbow-text" style="font-weight: bold; font-size: 18px; text-shadow: 0 0 10px var(--accent-color);">DANCING IN 3D!!!</span>
+                        </div>
+                    </div>
+
+                    <div class="blockchain-animation">
+                        <div class="block pulse-crazy" style="--i:0;"></div>
+                        <div class="connection hue-rotate" style="--i:0;"></div>
+                        <div class="block pulse-crazy" style="--i:1;"></div>
+                        <div class="connection hue-rotate" style="--i:1;"></div>
+                        <div class="block pulse-crazy" style="--i:2;"></div>
+                    </div>
+                    <div class="hero-cta">
+                        <a href="blog.html" class="btn btn-primary btn-emoji-rain">
+                            <span class="btn-icon spin-fast"><i class="fas fa-fire"></i></span>
+                            READ BLOG
+                        </a>
+                        <a href="about.html" class="btn btn-secondary btn-emoji-rain">
+                            <span class="btn-icon spin-reverse"><i class="fas fa-bomb"></i></span>
+                            ABOUT ME
+                        </a>
+                    </div>
+                    <marquee scrollamount="10" class="rainbow-text" style="margin-top: 20px; font-weight: bold;">
+                        🔥🔥🔥 WELCOME TO THE MOST INSANE BLOG ON THE INTERNET!!! 🔥🔥🔥
+                    </marquee>
+                </div>
+                <div class="hero-image">
+                    <div class="geometric-shape pulse-crazy"></div>
+                    <div class="geometric-shape hue-rotate"></div>
+                    <div class="geometric-shape spin-fast"></div>
+                </div>
+            </div>
+            <div class="scroll-indicator bounce-crazy">
+                <span class="rainbow-text">SCROLL DOWN!!!</span>
+                <i class="fas fa-chevron-down spin-fast"></i>
+            </div>
+        </section>
+
+        <section class="featured-posts">
+            <div class="container">
+                <h2 class="section-title extreme-glitch rainbow-text" data-text="CRAZY POSTS!!!">CRAZY POSTS!!!</h2>
+                <div class="posts-dancers">
+                    <div class="post-dancer">
+                        <img src="images/tralarero.jpg" alt="3D Dancing Tralarero 1">
+                    </div>
+                    <div class="post-dancer">
+                        <img src="images/tralarero.jpg" alt="3D Dancing Tralarero 2">
+                    </div>
+                    <div class="post-dancer">
+                        <img src="images/tralarero.jpg" alt="3D Dancing Tralarero 3">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-bottom: 15px;">
+                    <span class="rainbow-text" style="font-weight: bold; font-size: 18px; text-shadow: 0 0 10px var(--accent-color);">THE TRALARERO DANCE CREW!!!</span>
+                </div>
+                <div class="posts-grid">
+                    <article class="post-card glass-card card-glow card-wiggle" style="--i:0;">
+                        <div class="post-card-image">
+                            <div class="post-category pulse-crazy">
+                                <i class="fas fa-brain spin-fast"></i> BRAINROT
+                            </div>
+                            <img src="https://source.unsplash.com/random/600x400/?glitch" alt="Glitch Art">
+                        </div>
+                        <div class="post-card-content">
+                            <div class="token-price hue-rotate">🔥 100% INSANE 🔥</div>
+                            <h3 class="post-title rainbow-text">
+                                <div class="post-title-dancer">
+                                    <img src="images/tralarero.jpg" alt="3D Dancing Tralarero">
+                                </div>
+                                HOW TO ACHIEVE MAXIMUM BRAINROT
+                            </h3>
+                            <p class="post-excerpt">A step-by-step guide to completely frying your brain with the most chaotic and insane content on the internet!!!</p>
+                            <div class="post-meta">
+                                <span class="post-date wiggle">TODAY!!!</span>
+                                <span class="post-read-time bounce-crazy">∞ min read</span>
+                            </div>
+                            <a href="blog-posts/post.html?id=1" class="btn btn-primary btn-emoji-rain">
+                                <i class="fas fa-radiation spin-fast"></i> READ IF YOU DARE
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card glass-card card-glow card-rotate" style="--i:1;">
+                        <div class="post-card-image">
+                            <div class="post-category pulse-crazy">
+                                <i class="fas fa-dizzy spin-reverse"></i> CHAOS
+                            </div>
+                            <img src="https://source.unsplash.com/random/600x400/?neon" alt="Neon Chaos">
+                        </div>
+                        <div class="post-card-content">
+                            <div class="web3-badge hue-rotate">
+                                <i class="fas fa-bolt"></i> ELECTRIFYING
+                            </div>
+                            <h3 class="post-title rainbow-text">
+                                <div class="post-title-dancer">
+                                    <img src="images/tralarero.jpg" alt="3D Dancing Tralarero" style="filter: hue-rotate(90deg);">
+                                </div>
+                                10 WAYS TO MAKE YOUR WEBSITE ABSOLUTELY CHAOTIC
+                            </h3>
+                            <p class="post-excerpt">Learn how to create the most eye-searing, mind-melting web experiences that will make visitors question their sanity!!!</p>
+                            <div class="post-meta">
+                                <span class="post-date wiggle">YESTERDAY!!!</span>
+                                <span class="post-read-time bounce-crazy">🤯 min read</span>
+                            </div>
+                            <a href="blog-posts/post.html?id=2" class="btn btn-primary btn-emoji-rain">
+                                <i class="fas fa-eye spin-fast"></i> MELT YOUR EYES
+                            </a>
+                        </div>
+                    </article>
+
+                    <article class="post-card glass-card card-glow card-pulse" style="--i:2;">
+                        <div class="post-card-image">
+                            <div class="post-category pulse-crazy">
+                                <i class="fas fa-meteor spin-fast"></i> EXTREME
+                            </div>
+                            <img src="https://source.unsplash.com/random/600x400/?psychedelic" alt="Psychedelic">
+                        </div>
+                        <div class="post-card-content">
+                            <div class="token-spin hue-rotate">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h3 class="post-title rainbow-text">
+                                <div class="post-title-dancer">
+                                    <img src="images/tralarero.jpg" alt="3D Dancing Tralarero" style="filter: hue-rotate(180deg);">
+                                </div>
+                                THE ULTIMATE GUIDE TO COLOR SEIZURES
+                            </h3>
+                            <p class="post-excerpt">Discover how to combine the most eye-straining color combinations that will make any designer have a complete meltdown!!!</p>
+                            <div class="post-meta">
+                                <span class="post-date wiggle">TOMORROW!!!</span>
+                                <span class="post-read-time bounce-crazy">🌈 min read</span>
+                            </div>
+                            <a href="blog-posts/post.html?id=3" class="btn btn-primary btn-emoji-rain">
+                                <i class="fas fa-palette spin-reverse"></i> STRAIN YOUR EYES
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                <div class="view-all-container">
+                    <a href="blog.html" class="btn btn-secondary btn-large btn-emoji-rain wiggle">
+                        <i class="fas fa-biohazard spin-fast"></i> MORE BRAINROT
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter glass-card card-glow">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="web3-badge bounce-crazy">
+                        <i class="fas fa-envelope-open-text spin-fast"></i> SUBSCRIBE OR ELSE
+                    </div>
+                    <h2 class="extreme-glitch rainbow-text" data-text="JOIN THE CHAOS!!!">JOIN THE CHAOS!!!</h2>
+                    <div class="newsletter-dancer">
+                        <img src="images/tralarero.jpg" alt="3D Dancing Newsletter Tralarero">
+                    </div>
+                    <div style="text-align: center; margin: 10px 0;">
+                        <span class="rainbow-text" style="font-weight: bold; font-size: 18px; text-shadow: 0 0 10px var(--accent-color);">TRALARERO WANTS YOUR EMAIL!!!</span>
+                    </div>
+                    <p class="rainbow-text">SUBSCRIBE TO RECEIVE THE MOST BRAIN-MELTING CONTENT DIRECTLY TO YOUR INBOX!!!</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="YOUR EMAIL (IF YOU DARE)" required class="wiggle">
+                            <button type="submit" class="btn btn-primary btn-emoji-rain pulse-crazy">
+                                <i class="fas fa-skull-crossbones spin-fast"></i> SUBSCRIBE NOW!!!
+                            </button>
+                        </div>
+                        <div class="blockchain-address rainbow-text" style="margin-top: 20px; text-align: center; font-weight: bold;">
+                            WARNING: MAY CAUSE SEVERE BRAIN DAMAGE
+                        </div>
+                        <div class="form-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="container">
+                <h2 class="section-title extreme-glitch rainbow-text" data-text="EXPLORE INSANITY">EXPLORE INSANITY</h2>
+                <div class="categories-dancer">
+                    <img src="images/tralarero.jpg" alt="3D Dancing Categories Tralarero">
+                    <div style="position: absolute; top: -20px; left: 0; right: 0; text-align: center; z-index: 10;">
+                        <span class="rainbow-text" style="font-weight: bold; font-size: 18px; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 10px;">TRALARERO SAYS:</span>
+                    </div>
+                    <div style="position: absolute; bottom: -20px; left: 0; right: 0; text-align: center; z-index: 10;">
+                        <span class="rainbow-text" style="font-weight: bold; font-size: 18px; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 10px;">CHOOSE WISELY!!!</span>
+                    </div>
+                </div>
+                <div class="categories-grid">
+                    <a href="blog.html?category=brainrot" class="category-card card-wiggle">
+                        <div class="category-dancer">
+                            <img src="images/tralarero.jpg" alt="3D Dancing Tralarero">
+                        </div>
+                        <i class="fas fa-brain hue-rotate"></i>
+                        <h3 class="rainbow-text">BRAINROT</h3>
+                    </a>
+                    <a href="blog.html?category=chaos" class="category-card card-pulse">
+                        <div class="category-dancer">
+                            <img src="images/tralarero.jpg" alt="3D Dancing Tralarero">
+                        </div>
+                        <i class="fas fa-bomb spin-fast"></i>
+                        <h3 class="rainbow-text">CHAOS</h3>
+                    </a>
+                    <a href="blog.html?category=eyestrain" class="category-card card-rotate">
+                        <div class="category-dancer">
+                            <img src="images/tralarero.jpg" alt="3D Dancing Tralarero">
+                        </div>
+                        <i class="fas fa-eye spin-reverse"></i>
+                        <h3 class="rainbow-text">EYE STRAIN</h3>
+                    </a>
+                    <a href="blog.html?category=seizure" class="category-card card-wiggle">
+                        <div class="category-dancer">
+                            <img src="images/tralarero.jpg" alt="3D Dancing Tralarero">
+                        </div>
+                        <i class="fas fa-bolt pulse-crazy"></i>
+                        <h3 class="rainbow-text">SEIZURES</h3>
+                    </a>
+                    <a href="blog.html?category=insanity" class="category-card card-pulse">
+                        <div class="category-dancer">
+                            <img src="images/tralarero.jpg" alt="3D Dancing Tralarero" style="filter: hue-rotate(90deg);">
+                        </div>
+                        <i class="fas fa-dizzy spin-fast"></i>
+                        <h3 class="rainbow-text">INSANITY</h3>
+                    </a>
+                    <a href="blog.html?category=meltdown" class="category-card card-rotate">
+                        <div class="category-dancer">
+                            <img src="images/tralarero.jpg" alt="3D Dancing Tralarero" style="filter: hue-rotate(180deg);">
+                        </div>
+                        <i class="fas fa-radiation spin-reverse"></i>
+                        <h3 class="rainbow-text">MELTDOWNS</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text spin-fast">A<span class="highlight pulse-crazy">!</span></span>
+                    <p class="rainbow-text">MAXIMUM BRAINROT ACHIEVED!!!</p>
+                    <div class="blockchain-address wiggle" style="margin-top: 15px;">
+                        <span class="hue-rotate">🔥🔥🔥 FOLLOW FOR MORE INSANITY 🔥🔥🔥</span>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3 class="rainbow-text wiggle">NAVIGATION</h3>
+                        <ul>
+                            <li><a href="index.html" class="pulse-crazy">🏠 HOME</a></li>
+                            <li><a href="blog.html" class="pulse-crazy">📝 BLOG</a></li>
+                            <li><a href="about.html" class="pulse-crazy">👤 ABOUT</a></li>
+                            <li><a href="contact.html" class="pulse-crazy">📞 CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="rainbow-text wiggle">INSANITY TOPICS</h3>
+                        <ul>
+                            <li><a href="blog.html?category=brainrot" class="pulse-crazy">🧠 BRAINROT</a></li>
+                            <li><a href="blog.html?category=chaos" class="pulse-crazy">💥 CHAOS</a></li>
+                            <li><a href="blog.html?category=eyestrain" class="pulse-crazy">👁️ EYE STRAIN</a></li>
+                            <li><a href="blog.html?category=seizure" class="pulse-crazy">⚡ SEIZURES</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3 class="rainbow-text wiggle">CONNECT</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter" class="spin-fast"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Discord" class="spin-reverse"><i class="fab fa-discord"></i></a>
+                            <a href="#" aria-label="GitHub" class="pulse-crazy"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="TikTok" class="wiggle"><i class="fab fa-tiktok"></i></a>
+                        </div>
+                        <div style="margin-top: 20px;">
+                            <a href="#" class="btn btn-primary btn-emoji-rain wiggle">
+                                <i class="fas fa-exclamation-triangle spin-fast"></i> FOLLOW ME!!!
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="rainbow-text">⚠️ WARNING: THIS SITE MAY CAUSE BRAIN DAMAGE ⚠️</p>
+                <p class="rainbow-text">CREATED WITH <i class="fas fa-heart pulse-crazy"></i> AND ABSOLUTE CHAOS</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/blog-data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 400,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Abhinav | Personal Blog</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .about-section {
+            padding: 120px 0 60px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        .about-text h1 {
+            margin-bottom: 30px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .skills {
+            margin-top: 40px;
+        }
+
+        .skills h3 {
+            margin-bottom: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background: var(--glass-bg);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .timeline {
+            margin-top: 80px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 40px;
+            border-left: 2px solid var(--primary-color);
+        }
+
+        .timeline-date {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .timeline-company {
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: -1;
+                max-width: 400px;
+                margin: 0 auto 40px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <div class="noise-overlay"></div>
+    <div class="cursor-follower"></div>
+    <div id="particles-js" class="particles-container"></div>
+
+    <header class="glass-nav">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">A<span class="highlight">.</span></span>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="search-toggle" aria-label="Toggle search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="menu-toggle" class="mobile-only" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="container">
+            <div class="search-container glass-card">
+                <input type="text" id="search-input" placeholder="Search articles...">
+                <button id="close-search">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="about-section">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text" data-aos="fade-right" data-aos-duration="1000">
+                        <h1 class="gradient-text">About Me</h1>
+                        <p>Hello! I'm Abhinav, a passionate writer, technologist, and creative thinker. I created this blog as a space to share my thoughts on technology, design, productivity, and the occasional personal reflection.</p>
+                        <p>With over 5 years of experience in the tech industry, I've developed a unique perspective on how technology shapes our lives and how we can harness it to create meaningful experiences.</p>
+                        <p>When I'm not writing or coding, you can find me exploring new hiking trails, experimenting with photography, or diving into a good book.</p>
+
+                        <div class="skills">
+                            <h3 class="neon-glow">Skills & Expertise</h3>
+                            <div class="skill-tags">
+                                <span class="skill-tag hover-glow" data-aos="zoom-in" data-aos-delay="100">Web Development</span>
+                                <span class="skill-tag hover-glow" data-aos="zoom-in" data-aos-delay="200">UX/UI Design</span>
+                                <span class="skill-tag hover-glow" data-aos="zoom-in" data-aos-delay="300">Content Strategy</span>
+                                <span class="skill-tag hover-glow" data-aos="zoom-in" data-aos-delay="400">Data Analysis</span>
+                                <span class="skill-tag hover-glow" data-aos="zoom-in" data-aos-delay="500">Digital Marketing</span>
+                                <span class="skill-tag hover-glow" data-aos="zoom-in" data-aos-delay="600">Technical Writing</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about-image" data-aos="fade-left" data-aos-duration="1000">
+                        <img src="https://source.unsplash.com/random/600x800/?portrait" alt="Abhinav" class="hover-lift">
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    <h2 class="section-title gradient-text" data-aos="fade-up" data-aos-duration="800">Experience</h2>
+
+                    <div class="timeline-item card-3d" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <div class="timeline-date">2021 - Present</div>
+                        <h3 class="timeline-title">Senior Product Designer</h3>
+                        <div class="timeline-company">TechVision Inc.</div>
+                        <p>Leading design initiatives for flagship products, collaborating with cross-functional teams, and establishing design systems that enhance user experience.</p>
+                    </div>
+
+                    <div class="timeline-item card-3d" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="timeline-date">2019 - 2021</div>
+                        <h3 class="timeline-title">UX Designer</h3>
+                        <div class="timeline-company">InnovateLab</div>
+                        <p>Designed user-centered interfaces for web and mobile applications, conducted user research, and created interactive prototypes to validate design concepts.</p>
+                    </div>
+
+                    <div class="timeline-item card-3d" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <div class="timeline-date">2018 - 2019</div>
+                        <h3 class="timeline-title">Web Developer</h3>
+                        <div class="timeline-company">Digital Crafters</div>
+                        <p>Developed responsive websites and web applications using modern frameworks, ensuring cross-browser compatibility and optimal performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter glass-card">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to my newsletter to receive the latest updates and insights.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">A<span class="highlight">.</span></span>
+                    <p>Thoughts, stories, and ideas.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="blog.html">Blog</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="blog.html?category=technology">Technology</a></li>
+                            <li><a href="blog.html?category=design">Design</a></li>
+                            <li><a href="blog.html?category=productivity">Productivity</a></li>
+                            <li><a href="blog.html?category=science">Science</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Abhinav. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart"></i> by Abhinav</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+</body>
+</html>
