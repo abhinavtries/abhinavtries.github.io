@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | Abhinav's Personal Blog</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .post-header {
+            padding: 120px 0 40px;
+            text-align: center;
+        }
+
+        .post-category {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .post-title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .post-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .post-featured-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 40px;
+        }
+
+        .post-content {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+        }
+
+        .post-content h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 40px 0 20px;
+            font-size: 2rem;
+        }
+
+        .post-content h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 30px 0 15px;
+            font-size: 1.5rem;
+        }
+
+        .post-content ul,
+        .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .post-content li {
+            margin-bottom: 10px;
+        }
+
+        .post-content blockquote {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+        }
+
+        .post-content img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .post-content code {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        .post-content pre {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 30px 0;
+        }
+
+        .post-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 40px 0;
+        }
+
+        .post-tag {
+            background: var(--glass-bg);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid var(--glass-border);
+        }
+
+        .post-share {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin: 40px 0;
+        }
+
+        .post-share span {
+            font-weight: 600;
+        }
+
+        .share-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .share-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: inherit;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .share-link:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .post-author {
+            display: flex;
+            gap: 20px;
+            background: var(--glass-bg);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 60px 0;
+            border: 1px solid var(--glass-border);
+        }
+
+        .author-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .author-info h3 {
+            margin-bottom: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .author-info p {
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .author-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .author-social a {
+            color: inherit;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .author-social a:hover {
+            color: var(--primary-color);
+        }
+
+        .related-posts {
+            margin: 80px 0;
+        }
+
+        .related-posts h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .related-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 2rem;
+            }
+
+            .related-posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .post-author {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .author-social {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <div class="noise-overlay"></div>
+    <div class="cursor-follower"></div>
+    <div id="particles-js" class="particles-container"></div>
+
+    <header class="glass-nav">
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <span class="logo-text">A<span class="highlight">.</span></span>
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../blog.html" class="active">Blog</a></li>
+                    <li><a href="../about.html">About</a></li>
+                    <li><a href="../contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button id="search-toggle" aria-label="Toggle search">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="menu-toggle" class="mobile-only" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="search-overlay">
+        <div class="container">
+            <div class="search-container glass-card">
+                <input type="text" id="search-input" placeholder="Search articles...">
+                <button id="close-search">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="search-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <article class="post-single">
+            <div class="container">
+                <header class="post-header">
+                    <div id="post-category" class="post-category" data-aos="fade-up" data-aos-duration="800">Technology</div>
+                    <h1 id="post-title" class="post-title gradient-text" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">The Future of AI in Everyday Life</h1>
+                    <div class="post-meta" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <div class="post-meta-item">
+                            <i class="far fa-calendar"></i>
+                            <span id="post-date">April 15, 2023</span>
+                        </div>
+                        <div class="post-meta-item">
+                            <i class="far fa-clock"></i>
+                            <span id="post-read-time">5 min read</span>
+                        </div>
+                        <div class="post-meta-item">
+                            <i class="far fa-user"></i>
+                            <span id="post-author">Abhinav</span>
+                        </div>
+                    </div>
+                </header>
+
+                <img id="post-image" src="https://source.unsplash.com/random/1200x600/?tech" alt="Blog post featured image" class="post-featured-image hover-lift" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+
+                <div id="post-content" class="post-content" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <!-- Post content will be dynamically populated here -->
+                </div>
+
+                <div class="post-tags" id="post-tags" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <!-- Tags will be dynamically populated here -->
+                </div>
+
+                <div class="post-share" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <span>Share:</span>
+                    <div class="share-links">
+                        <a href="#" class="share-link hover-glow" aria-label="Share on Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="share-link hover-glow" aria-label="Share on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="share-link hover-glow" aria-label="Share on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="share-link hover-glow" aria-label="Share via Email">
+                            <i class="far fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="post-author card-3d" data-aos="fade-up" data-aos-duration="1000">
+                    <img src="https://source.unsplash.com/random/200x200/?portrait" alt="Abhinav" class="author-image hover-lift">
+                    <div class="author-info">
+                        <h3 class="gradient-text">Abhinav</h3>
+                        <p>A passionate writer, technologist, and creative thinker with over 5 years of experience in the tech industry. Abhinav loves exploring the intersection of technology, design, and human experience.</p>
+                        <div class="author-social">
+                            <a href="#" aria-label="Twitter" class="hover-glow"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn" class="hover-glow"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub" class="hover-glow"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Instagram" class="hover-glow"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <section class="related-posts">
+            <div class="container">
+                <h2 class="gradient-text" data-aos="fade-up" data-aos-duration="800">You Might Also Like</h2>
+                <div class="related-posts-grid" id="related-posts" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                    <!-- Related posts will be dynamically populated here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter glass-card">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Subscribe to my newsletter to receive the latest updates and insights.</p>
+                    <form id="newsletter-form" class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your email address" required>
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </div>
+                        <div class="form-feedback"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">A<span class="highlight">.</span></span>
+                    <p>Thoughts, stories, and ideas.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h3>Navigation</h3>
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="../blog.html">Blog</a></li>
+                            <li><a href="../about.html">About</a></li>
+                            <li><a href="../contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="../blog.html?category=technology">Technology</a></li>
+                            <li><a href="../blog.html?category=design">Design</a></li>
+                            <li><a href="../blog.html?category=productivity">Productivity</a></li>
+                            <li><a href="../blog.html?category=science">Science</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Connect</h3>
+                        <div class="social-links">
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Abhinav. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart"></i> by Abhinav</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script src="../js/blog-data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get post ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const postId = urlParams.get('id');
+
+            if (!postId) {
+                // Redirect to blog page if no ID is provided
+                window.location.href = '../blog.html';
+                return;
+            }
+
+            // Get post data
+            const post = getPostById(parseInt(postId));
+
+            if (!post) {
+                // Redirect to blog page if post is not found
+                window.location.href = '../blog.html';
+                return;
+            }
+
+            // Update page title
+            document.title = `${post.title} | Abhinav's Personal Blog`;
+
+            // Populate post data
+            document.getElementById('post-category').textContent = post.category;
+            document.getElementById('post-title').textContent = post.title;
+            document.getElementById('post-date').textContent = post.date;
+            document.getElementById('post-read-time').textContent = post.readTime;
+            document.getElementById('post-author').textContent = post.author;
+            document.getElementById('post-image').src = post.image;
+            document.getElementById('post-image').alt = post.title;
+            document.getElementById('post-content').innerHTML = post.content;
+
+            // Populate tags
+            const tagsContainer = document.getElementById('post-tags');
+            tagsContainer.innerHTML = '';
+
+            post.tags.forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'post-tag';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
+
+            // Populate related posts (excluding current post)
+            const relatedPosts = blogPosts
+                .filter(p => p.id !== post.id && p.category === post.category)
+                .slice(0, 3);
+
+            const relatedPostsContainer = document.getElementById('related-posts');
+            relatedPostsContainer.innerHTML = '';
+
+            if (relatedPosts.length === 0) {
+                relatedPostsContainer.innerHTML = '<p>No related posts found.</p>';
+            } else {
+                relatedPosts.forEach(relatedPost => {
+                    const postElement = document.createElement('article');
+                    postElement.className = 'post-card glass-card';
+                    postElement.innerHTML = `
+                        <div class="post-card-image">
+                            <div class="post-category">${relatedPost.category}</div>
+                            <img src="${relatedPost.image}" alt="${relatedPost.title}">
+                        </div>
+                        <div class="post-card-content">
+                            <h3 class="post-title">${relatedPost.title}</h3>
+                            <p class="post-excerpt">${relatedPost.excerpt}</p>
+                            <div class="post-meta">
+                                <span class="post-date">${relatedPost.date}</span>
+                                <span class="post-read-time">${relatedPost.readTime}</span>
+                            </div>
+                            <a href="post.html?id=${relatedPost.id}" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    `;
+                    relatedPostsContainer.appendChild(postElement);
+                });
+            }
+
+            // Set up share links
+            const shareLinks = document.querySelectorAll('.share-link');
+            const pageUrl = encodeURIComponent(window.location.href);
+            const pageTitle = encodeURIComponent(post.title);
+
+            shareLinks.forEach(link => {
+                const platform = link.getAttribute('aria-label').toLowerCase();
+
+                if (platform.includes('twitter')) {
+                    link.href = `https://twitter.com/intent/tweet?url=${pageUrl}&text=${pageTitle}`;
+                } else if (platform.includes('facebook')) {
+                    link.href = `https://www.facebook.com/sharer/sharer.php?u=${pageUrl}`;
+                } else if (platform.includes('linkedin')) {
+                    link.href = `https://www.linkedin.com/sharing/share-offsite/?url=${pageUrl}`;
+                } else if (platform.includes('email')) {
+                    link.href = `mailto:?subject=${pageTitle}&body=Check out this article: ${pageUrl}`;
+                }
+
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+            });
+        });
+    </script>
+</body>
+</html>
